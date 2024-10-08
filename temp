@@ -1,0 +1,77 @@
+<server description="new server">
+
+    <!-- Enable features -->
+    <featureManager>
+        <feature>jsp-2.3</feature>
+        <feature>localConnector-1.0</feature>
+        <feature>transportSecurity-1.0</feature>
+        <feature>servlet-4.0</feature>
+    	<feature>jdbc-4.1</feature>
+    	<feature>appSecurity-2.0</feature>
+    	<feature>concurrent-1.0</feature>
+    </featureManager>
+
+    <!-- To access this server from a remote client add a host attribute to the following element, e.g. host="*" -->
+    <httpEndpoint httpPort="9080" httpsPort="9443" id="defaultHttpEndpoint"/>
+                  
+    <!-- Automatically expand WAR files and EAR files -->
+    <applicationManager autoExpand="true"/>
+    <applicationMonitor updateTrigger="mbean"/>
+    
+    <keyStore id="defaultKeyStore" password="{xor}LTosHjsyNjE=" />
+    
+    <!-- Web application security -->
+	<basicRegistry id="basic" realm="customRealm">
+		<user name="resAdmin" password="resAdmin"/>
+		<user name="resDeploy" password="resDeploy"/>
+		<user name="resMonitor" password="resMonitor"/>
+		<group name="resAdministrators">
+			<member name="resAdmin"/>
+		</group>
+		<group name="resDeployers">
+			<member name="resDeploy"/>
+		</group>
+		<group name="resMonitors">
+			<member name="resMonitor"/>
+		</group>
+	</basicRegistry>
+    
+    <!-- RES data source -->
+	<jdbcDriver id="DerbyJdbcDriver" libraryRef="DerbyLib"/>
+	<library id="DerbyLib"	filesetRef="DerbyFileset"/>
+	<fileset id="DerbyFileset" dir="${shared.resource.dir}/derby" includes="derby.jar"/>
+	<dataSource id="derbyEmbedded"
+	            isolationLevel="TRANSACTION_READ_COMMITTED"
+	            jndiName="jdbc/resdatasource"
+	            jdbcDriverRef="DerbyJdbcDriver">
+		<properties.derby.embedded 
+					databaseName="${shared.config.dir}derby/resdb"
+		        	createDatabase="create"
+		        	user="resdbUser"
+		        	password="resdbUser"/>
+	</dataSource>
+    
+    <!-- HTDS -->
+	<application type="war"
+	             id="DecisionService"
+	             name="DecisionService"
+	             location="${server.config.dir}/apps/decisionService.war">
+	</application>
+	
+	<!-- RES console -->
+	<application type="war" id="res" name="res" location="${server.config.dir}/apps/res.war">
+		<application-bnd>
+			<security-role name="resAdministrators">
+				<group name="resAdministrators"/>
+			</security-role>
+			<security-role name="resDeployers">
+				<group name="resDeployers"/>
+			</security-role>
+			<security-role name="resMonitors">
+				<group name="resMonitors"/>
+			</security-role>
+		</application-bnd>
+	</application>
+	
+	
+</server>
