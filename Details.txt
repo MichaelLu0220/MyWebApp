@@ -1,0 +1,715 @@
+匯出規則集保存檔期間發生錯誤。
+	轉換 '_var214.funeralTotal = _var214.funeralTotal + com.Mli.NB.rule.util.ValueUtil.countFaceAmt(`varResultjava.util.ArrayList<com.Mli.NB.rule.bom.InvalidPlanInfo>2`)' 陳述式時
+	轉換 '{
+  _var214.funeralTotal = _var214.funeralTotal + com.Mli.NB.rule.util.ValueUtil.countFaceAmt(`varResultjava.util.ArrayList<com.Mli.NB.rule.bom.InvalidPlanInfo>2`);
+}
+' 陳述式時
+	轉換 'try {
+  abstractEngineData.pushExecutionObject(currentRule);
+  {
+    _var214.funeralTotal = _var214.funeralTotal + com.Mli.NB.rule.util.ValueUtil.countFaceAmt(`varResultjava.util.ArrayList<com.Mli.NB.rule.bom.InvalidPlanInfo>2`);
+  }
+  
+}
+finally {
+  abstractEngineData.popExecutionObject();
+}
+' 陳述式時
+	轉換 'if (currentRule != null) {
+  com.ibm.rules.engine.fastpath.runtime.FastRuleAction action = (com.ibm.rules.engine.fastpath.runtime.FastRuleAction)com.ibm.rules.generated.ruleflow.flow.`mainflow>累計計算規則`.SEQEngineDefinition.rulesArray[44].getRuleActions().get(0);
+  currentRule.setRuleAction(action);
+  com.ibm.rules.engine.runtime.impl.AbstractEngineData abstractEngineData = com.ibm.rules.generated.ruleflow.flow.`mainflow>累計計算規則`.SEQEngine.this.engineData;
+  com.ibm.rules.generated.ruleflow.flow.`mainflow>累計計算規則`.SEQEngine.this.ruleExecutionStarted(com.ibm.rules.generated.ruleflow.flow.`mainflow>累計計算規則`.SEQEngine.this, currentRule);
+  com.ibm.rules.generated.ruleflow.flow.`mainflow>累計計算規則`.SEQEngine.this.ruleCounter+= 1;
+  try {
+    abstractEngineData.pushExecutionObject(currentRule);
+    {
+      _var214.funeralTotal = _var214.funeralTotal + com.Mli.NB.rule.util.ValueUtil.countFaceAmt(`varResultjava.util.ArrayList<com.Mli.NB.rule.bom.InvalidPlanInfo>2`);
+    }
+    
+  }
+  finally {
+    abstractEngineData.popExecutionObject();
+  }
+  
+  com.ibm.rules.generated.ruleflow.flow.`mainflow>累計計算規則`.SEQEngine.this.ruleExecutionEnded(com.ibm.rules.generated.ruleflow.flow.`mainflow>累計計算規則`.SEQEngine.this, currentRule);
+}
+' 陳述式時
+	轉換 'if (! _var215.poStsCode.equals("42") && ((ilog.rules.brl.Date)com.Mli.NB.rule.base.basehelper.getFormatDate(_var215.gapStartDate)).afterOrEquals((ilog.rules.brl.Date)com.Mli.NB.rule.base.basehelper.getBeforeYear(_var213.appApplyDate, 2)) || _var215.poStsCode.equals("42") && ((ilog.rules.brl.Date)com.Mli.NB.rule.base.basehelper.getFormatDate(_var215.gapStartDateR)).afterOrEquals((ilog.rules.brl.Date)com.Mli.NB.rule.base.basehelper.getBeforeYear(_var213.appApplyDate, 2))) {
+  java.util.ArrayList<com.Mli.NB.rule.bom.InvalidPlanInfo> `varResultjava.util.ArrayList<com.Mli.NB.rule.bom.InvalidPlanInfo>2` = new java.util.ArrayList<com.Mli.NB.rule.bom.InvalidPlanInfo>();
+  com.Mli.NB.rule.bom.InvalidPlanInfo _var0;
+  java.util.List-0, +oo of com.Mli.NB.rule.bom.InvalidPlanInfo _rV_In_loopValues0;
+  _rV_In_loopValues0 = _var215.invalidPlanInfo;
+  if (_rV_In_loopValues0 != null) {
+    for (java.lang.Object object : _rV_In_loopValues0){
+      _var0 =  (object instanceof com.Mli.NB.rule.bom.InvalidPlanInfo ? (com.Mli.NB.rule.bom.InvalidPlanInfo)object : null );
+      if (_var0 != null) {
+        if ((com.Mli.NB.rule.base.basehelper.getSubString(_var0.benefitPtr, 1, 1).equals("1") && ! _var0.planAbbrCode.equals("ADDR")) && (((new java.lang.String[]{"1", "9"}.contains(com.Mli.NB.rule.base.basehelper.getSubString(_var215.policyNo, 1, 1)) && ! _var215.poStsCode.equals("42") || ((! new java.lang.String[]{"1", "9"}.contains(com.Mli.NB.rule.base.basehelper.getSubString(_var215.policyNo, 1, 1)) && ! _var215.poStsCode.equals("42")) && ((ilog.rules.brl.Date)com.Mli.NB.rule.base.basehelper.getFormatDate(_var215.gapStartDateR)).before((ilog.rules.brl.Date)com.Mli.NB.rule.base.basehelper.getBeforeYear(_var213.appApplyDate, 2))) && _var0.coverageNo.equals("1")) || (! new java.lang.String[]{"1", "9"}.contains(com.Mli.NB.rule.base.basehelper.getSubString(_var215.policyNo, 1, 1)) && ! _var215.poStsCode.equals("42")) && ((ilog.rules.brl.Date)com.Mli.NB.rule.base.basehelper.getFormatDate(_var215.gapStartDateR)).afterOrEquals((ilog.rules.brl.Date)com.Mli.NB.rule.base.basehelper.getBeforeYear(_var213.appApplyDate, 2))) || _var215.poStsCode.equals("42") && ! _var0.coverageNo.equals("1"))) {
+          `varResultjava.util.ArrayList<com.Mli.NB.rule.bom.InvalidPlanInfo>2`.add(_var0);
+        }
+        
+      }
+      
+    }
+    
+  }
+  
+  com.ibm.rules.engine.fastpath.runtime.RuleInstanceImpl currentRule;
+  java.lang.Object[] bindings = new java.lang.Object[5];
+  bindings[0] = _var212;
+  bindings[1] = _var213;
+  bindings[2] = _var214;
+  bindings[3] = _var215;
+  bindings[4] = `varResultjava.util.ArrayList<com.Mli.NB.rule.bom.InvalidPlanInfo>2`;
+  currentRule = com.ibm.rules.generated.ruleflow.flow.`mainflow>累計計算規則`.SEQEngine.this.getRuleInstance(com.ibm.rules.generated.ruleflow.flow.`mainflow>累計計算規則`.SEQEngineDefinition.rulesArray[44], bindings);
+  this.currentRule = currentRule;
+  if (currentRule != null) {
+    com.ibm.rules.engine.fastpath.runtime.FastRuleAction action = (com.ibm.rules.engine.fastpath.runtime.FastRuleAction)com.ibm.rules.generated.ruleflow.flow.`mainflow>累計計算規則`.SEQEngineDefinition.rulesArray[44].getRuleActions().get(0);
+    currentRule.setRuleAction(action);
+    com.ibm.rules.engine.runtime.impl.AbstractEngineData abstractEngineData = com.ibm.rules.generated.ruleflow.flow.`mainflow>累計計算規則`.SEQEngine.this.engineData;
+    com.ibm.rules.generated.ruleflow.flow.`mainflow>累計計算規則`.SEQEngine.this.ruleExecutionStarted(com.ibm.rules.generated.ruleflow.flow.`mainflow>累計計算規則`.SEQEngine.this, currentRule);
+    com.ibm.rules.generated.ruleflow.flow.`mainflow>累計計算規則`.SEQEngine.this.ruleCounter+= 1;
+    try {
+      abstractEngineData.pushExecutionObject(currentRule);
+      {
+        _var214.funeralTotal = _var214.funeralTotal + com.Mli.NB.rule.util.ValueUtil.countFaceAmt(`varResultjava.util.ArrayList<com.Mli.NB.rule.bom.InvalidPlanInfo>2`);
+      }
+      
+    }
+    finally {
+      abstractEngineData.popExecutionObject();
+    }
+    
+    com.ibm.rules.generated.ruleflow.flow.`mainflow>累計計算規則`.SEQEngine.this.ruleExecutionEnded(com.ibm.rules.generated.ruleflow.flow.`mainflow>累計計算規則`.SEQEngine.this, currentRule);
+  }
+  
+}
+' 陳述式時
+	轉換 'if (_var215 != null) {
+  if (! _var215.poStsCode.equals("42") && ((ilog.rules.brl.Date)com.Mli.NB.rule.base.basehelper.getFormatDate(_var215.gapStartDate)).afterOrEquals((ilog.rules.brl.Date)com.Mli.NB.rule.base.basehelper.getBeforeYear(_var213.appApplyDate, 2)) || _var215.poStsCode.equals("42") && ((ilog.rules.brl.Date)com.Mli.NB.rule.base.basehelper.getFormatDate(_var215.gapStartDateR)).afterOrEquals((ilog.rules.brl.Date)com.Mli.NB.rule.base.basehelper.getBeforeYear(_var213.appApplyDate, 2))) {
+    java.util.ArrayList<com.Mli.NB.rule.bom.InvalidPlanInfo> `varResultjava.util.ArrayList<com.Mli.NB.rule.bom.InvalidPlanInfo>2` = new java.util.ArrayList<com.Mli.NB.rule.bom.InvalidPlanInfo>();
+    com.Mli.NB.rule.bom.InvalidPlanInfo _var0;
+    java.util.List-0, +oo of com.Mli.NB.rule.bom.InvalidPlanInfo _rV_In_loopValues0;
+    _rV_In_loopValues0 = _var215.invalidPlanInfo;
+    if (_rV_In_loopValues0 != null) {
+      for (java.lang.Object object : _rV_In_loopValues0){
+        _var0 =  (object instanceof com.Mli.NB.rule.bom.InvalidPlanInfo ? (com.Mli.NB.rule.bom.InvalidPlanInfo)object : null );
+        if (_var0 != null) {
+          if ((com.Mli.NB.rule.base.basehelper.getSubString(_var0.benefitPtr, 1, 1).equals("1") && ! _var0.planAbbrCode.equals("ADDR")) && (((new java.lang.String[]{"1", "9"}.contains(com.Mli.NB.rule.base.basehelper.getSubString(_var215.policyNo, 1, 1)) && ! _var215.poStsCode.equals("42") || ((! new java.lang.String[]{"1", "9"}.contains(com.Mli.NB.rule.base.basehelper.getSubString(_var215.policyNo, 1, 1)) && ! _var215.poStsCode.equals("42")) && ((ilog.rules.brl.Date)com.Mli.NB.rule.base.basehelper.getFormatDate(_var215.gapStartDateR)).before((ilog.rules.brl.Date)com.Mli.NB.rule.base.basehelper.getBeforeYear(_var213.appApplyDate, 2))) && _var0.coverageNo.equals("1")) || (! new java.lang.String[]{"1", "9"}.contains(com.Mli.NB.rule.base.basehelper.getSubString(_var215.policyNo, 1, 1)) && ! _var215.poStsCode.equals("42")) && ((ilog.rules.brl.Date)com.Mli.NB.rule.base.basehelper.getFormatDate(_var215.gapStartDateR)).afterOrEquals((ilog.rules.brl.Date)com.Mli.NB.rule.base.basehelper.getBeforeYear(_var213.appApplyDate, 2))) || _var215.poStsCode.equals("42") && ! _var0.coverageNo.equals("1"))) {
+            `varResultjava.util.ArrayList<com.Mli.NB.rule.bom.InvalidPlanInfo>2`.add(_var0);
+          }
+          
+        }
+        
+      }
+      
+    }
+    
+    com.ibm.rules.engine.fastpath.runtime.RuleInstanceImpl currentRule;
+    java.lang.Object[] bindings = new java.lang.Object[5];
+    bindings[0] = _var212;
+    bindings[1] = _var213;
+    bindings[2] = _var214;
+    bindings[3] = _var215;
+    bindings[4] = `varResultjava.util.ArrayList<com.Mli.NB.rule.bom.InvalidPlanInfo>2`;
+    currentRule = com.ibm.rules.generated.ruleflow.flow.`mainflow>累計計算規則`.SEQEngine.this.getRuleInstance(com.ibm.rules.generated.ruleflow.flow.`mainflow>累計計算規則`.SEQEngineDefinition.rulesArray[44], bindings);
+    this.currentRule = currentRule;
+    if (currentRule != null) {
+      com.ibm.rules.engine.fastpath.runtime.FastRuleAction action = (com.ibm.rules.engine.fastpath.runtime.FastRuleAction)com.ibm.rules.generated.ruleflow.flow.`mainflow>累計計算規則`.SEQEngineDefinition.rulesArray[44].getRuleActions().get(0);
+      currentRule.setRuleAction(action);
+      com.ibm.rules.engine.runtime.impl.AbstractEngineData abstractEngineData = com.ibm.rules.generated.ruleflow.flow.`mainflow>累計計算規則`.SEQEngine.this.engineData;
+      com.ibm.rules.generated.ruleflow.flow.`mainflow>累計計算規則`.SEQEngine.this.ruleExecutionStarted(com.ibm.rules.generated.ruleflow.flow.`mainflow>累計計算規則`.SEQEngine.this, currentRule);
+      com.ibm.rules.generated.ruleflow.flow.`mainflow>累計計算規則`.SEQEngine.this.ruleCounter+= 1;
+      try {
+        abstractEngineData.pushExecutionObject(currentRule);
+        {
+          _var214.funeralTotal = _var214.funeralTotal + com.Mli.NB.rule.util.ValueUtil.countFaceAmt(`varResultjava.util.ArrayList<com.Mli.NB.rule.bom.InvalidPlanInfo>2`);
+        }
+        
+      }
+      finally {
+        abstractEngineData.popExecutionObject();
+      }
+      
+      com.ibm.rules.generated.ruleflow.flow.`mainflow>累計計算規則`.SEQEngine.this.ruleExecutionEnded(com.ibm.rules.generated.ruleflow.flow.`mainflow>累計計算規則`.SEQEngine.this, currentRule);
+    }
+    
+  }
+  
+}
+' 陳述式時
+	轉換 'for (java.lang.Object object : _rV_In_loopValues85){
+  _var215 =  (object instanceof com.Mli.NB.rule.bom.InvalidPolicy ? (com.Mli.NB.rule.bom.InvalidPolicy)object : null );
+  if (_var215 != null) {
+    if (! _var215.poStsCode.equals("42") && ((ilog.rules.brl.Date)com.Mli.NB.rule.base.basehelper.getFormatDate(_var215.gapStartDate)).afterOrEquals((ilog.rules.brl.Date)com.Mli.NB.rule.base.basehelper.getBeforeYear(_var213.appApplyDate, 2)) || _var215.poStsCode.equals("42") && ((ilog.rules.brl.Date)com.Mli.NB.rule.base.basehelper.getFormatDate(_var215.gapStartDateR)).afterOrEquals((ilog.rules.brl.Date)com.Mli.NB.rule.base.basehelper.getBeforeYear(_var213.appApplyDate, 2))) {
+      java.util.ArrayList<com.Mli.NB.rule.bom.InvalidPlanInfo> `varResultjava.util.ArrayList<com.Mli.NB.rule.bom.InvalidPlanInfo>2` = new java.util.ArrayList<com.Mli.NB.rule.bom.InvalidPlanInfo>();
+      com.Mli.NB.rule.bom.InvalidPlanInfo _var0;
+      java.util.List-0, +oo of com.Mli.NB.rule.bom.InvalidPlanInfo _rV_In_loopValues0;
+      _rV_In_loopValues0 = _var215.invalidPlanInfo;
+      if (_rV_In_loopValues0 != null) {
+        for (java.lang.Object object : _rV_In_loopValues0){
+          _var0 =  (object instanceof com.Mli.NB.rule.bom.InvalidPlanInfo ? (com.Mli.NB.rule.bom.InvalidPlanInfo)object : null );
+          if (_var0 != null) {
+            if ((com.Mli.NB.rule.base.basehelper.getSubString(_var0.benefitPtr, 1, 1).equals("1") && ! _var0.planAbbrCode.equals("ADDR")) && (((new java.lang.String[]{"1", "9"}.contains(com.Mli.NB.rule.base.basehelper.getSubString(_var215.policyNo, 1, 1)) && ! _var215.poStsCode.equals("42") || ((! new java.lang.String[]{"1", "9"}.contains(com.Mli.NB.rule.base.basehelper.getSubString(_var215.policyNo, 1, 1)) && ! _var215.poStsCode.equals("42")) && ((ilog.rules.brl.Date)com.Mli.NB.rule.base.basehelper.getFormatDate(_var215.gapStartDateR)).before((ilog.rules.brl.Date)com.Mli.NB.rule.base.basehelper.getBeforeYear(_var213.appApplyDate, 2))) && _var0.coverageNo.equals("1")) || (! new java.lang.String[]{"1", "9"}.contains(com.Mli.NB.rule.base.basehelper.getSubString(_var215.policyNo, 1, 1)) && ! _var215.poStsCode.equals("42")) && ((ilog.rules.brl.Date)com.Mli.NB.rule.base.basehelper.getFormatDate(_var215.gapStartDateR)).afterOrEquals((ilog.rules.brl.Date)com.Mli.NB.rule.base.basehelper.getBeforeYear(_var213.appApplyDate, 2))) || _var215.poStsCode.equals("42") && ! _var0.coverageNo.equals("1"))) {
+              `varResultjava.util.ArrayList<com.Mli.NB.rule.bom.InvalidPlanInfo>2`.add(_var0);
+            }
+            
+          }
+          
+        }
+        
+      }
+      
+      com.ibm.rules.engine.fastpath.runtime.RuleInstanceImpl currentRule;
+      java.lang.Object[] bindings = new java.lang.Object[5];
+      bindings[0] = _var212;
+      bindings[1] = _var213;
+      bindings[2] = _var214;
+      bindings[3] = _var215;
+      bindings[4] = `varResultjava.util.ArrayList<com.Mli.NB.rule.bom.InvalidPlanInfo>2`;
+      currentRule = com.ibm.rules.generated.ruleflow.flow.`mainflow>累計計算規則`.SEQEngine.this.getRuleInstance(com.ibm.rules.generated.ruleflow.flow.`mainflow>累計計算規則`.SEQEngineDefinition.rulesArray[44], bindings);
+      this.currentRule = currentRule;
+      if (currentRule != null) {
+        com.ibm.rules.engine.fastpath.runtime.FastRuleAction action = (com.ibm.rules.engine.fastpath.runtime.FastRuleAction)com.ibm.rules.generated.ruleflow.flow.`mainflow>累計計算規則`.SEQEngineDefinition.rulesArray[44].getRuleActions().get(0);
+        currentRule.setRuleAction(action);
+        com.ibm.rules.engine.runtime.impl.AbstractEngineData abstractEngineData = com.ibm.rules.generated.ruleflow.flow.`mainflow>累計計算規則`.SEQEngine.this.engineData;
+        com.ibm.rules.generated.ruleflow.flow.`mainflow>累計計算規則`.SEQEngine.this.ruleExecutionStarted(com.ibm.rules.generated.ruleflow.flow.`mainflow>累計計算規則`.SEQEngine.this, currentRule);
+        com.ibm.rules.generated.ruleflow.flow.`mainflow>累計計算規則`.SEQEngine.this.ruleCounter+= 1;
+        try {
+          abstractEngineData.pushExecutionObject(currentRule);
+          {
+            _var214.funeralTotal = _var214.funeralTotal + com.Mli.NB.rule.util.ValueUtil.countFaceAmt(`varResultjava.util.ArrayList<com.Mli.NB.rule.bom.InvalidPlanInfo>2`);
+          }
+          
+        }
+        finally {
+          abstractEngineData.popExecutionObject();
+        }
+        
+        com.ibm.rules.generated.ruleflow.flow.`mainflow>累計計算規則`.SEQEngine.this.ruleExecutionEnded(com.ibm.rules.generated.ruleflow.flow.`mainflow>累計計算規則`.SEQEngine.this, currentRule);
+      }
+      
+    }
+    
+  }
+  
+}
+' 陳述式時
+	轉換 'if (_rV_In_loopValues85 != null) {
+  for (java.lang.Object object : _rV_In_loopValues85){
+    _var215 =  (object instanceof com.Mli.NB.rule.bom.InvalidPolicy ? (com.Mli.NB.rule.bom.InvalidPolicy)object : null );
+    if (_var215 != null) {
+      if (! _var215.poStsCode.equals("42") && ((ilog.rules.brl.Date)com.Mli.NB.rule.base.basehelper.getFormatDate(_var215.gapStartDate)).afterOrEquals((ilog.rules.brl.Date)com.Mli.NB.rule.base.basehelper.getBeforeYear(_var213.appApplyDate, 2)) || _var215.poStsCode.equals("42") && ((ilog.rules.brl.Date)com.Mli.NB.rule.base.basehelper.getFormatDate(_var215.gapStartDateR)).afterOrEquals((ilog.rules.brl.Date)com.Mli.NB.rule.base.basehelper.getBeforeYear(_var213.appApplyDate, 2))) {
+        java.util.ArrayList<com.Mli.NB.rule.bom.InvalidPlanInfo> `varResultjava.util.ArrayList<com.Mli.NB.rule.bom.InvalidPlanInfo>2` = new java.util.ArrayList<com.Mli.NB.rule.bom.InvalidPlanInfo>();
+        com.Mli.NB.rule.bom.InvalidPlanInfo _var0;
+        java.util.List-0, +oo of com.Mli.NB.rule.bom.InvalidPlanInfo _rV_In_loopValues0;
+        _rV_In_loopValues0 = _var215.invalidPlanInfo;
+        if (_rV_In_loopValues0 != null) {
+          for (java.lang.Object object : _rV_In_loopValues0){
+            _var0 =  (object instanceof com.Mli.NB.rule.bom.InvalidPlanInfo ? (com.Mli.NB.rule.bom.InvalidPlanInfo)object : null );
+            if (_var0 != null) {
+              if ((com.Mli.NB.rule.base.basehelper.getSubString(_var0.benefitPtr, 1, 1).equals("1") && ! _var0.planAbbrCode.equals("ADDR")) && (((new java.lang.String[]{"1", "9"}.contains(com.Mli.NB.rule.base.basehelper.getSubString(_var215.policyNo, 1, 1)) && ! _var215.poStsCode.equals("42") || ((! new java.lang.String[]{"1", "9"}.contains(com.Mli.NB.rule.base.basehelper.getSubString(_var215.policyNo, 1, 1)) && ! _var215.poStsCode.equals("42")) && ((ilog.rules.brl.Date)com.Mli.NB.rule.base.basehelper.getFormatDate(_var215.gapStartDateR)).before((ilog.rules.brl.Date)com.Mli.NB.rule.base.basehelper.getBeforeYear(_var213.appApplyDate, 2))) && _var0.coverageNo.equals("1")) || (! new java.lang.String[]{"1", "9"}.contains(com.Mli.NB.rule.base.basehelper.getSubString(_var215.policyNo, 1, 1)) && ! _var215.poStsCode.equals("42")) && ((ilog.rules.brl.Date)com.Mli.NB.rule.base.basehelper.getFormatDate(_var215.gapStartDateR)).afterOrEquals((ilog.rules.brl.Date)com.Mli.NB.rule.base.basehelper.getBeforeYear(_var213.appApplyDate, 2))) || _var215.poStsCode.equals("42") && ! _var0.coverageNo.equals("1"))) {
+                `varResultjava.util.ArrayList<com.Mli.NB.rule.bom.InvalidPlanInfo>2`.add(_var0);
+              }
+              
+            }
+            
+          }
+          
+        }
+        
+        com.ibm.rules.engine.fastpath.runtime.RuleInstanceImpl currentRule;
+        java.lang.Object[] bindings = new java.lang.Object[5];
+        bindings[0] = _var212;
+        bindings[1] = _var213;
+        bindings[2] = _var214;
+        bindings[3] = _var215;
+        bindings[4] = `varResultjava.util.ArrayList<com.Mli.NB.rule.bom.InvalidPlanInfo>2`;
+        currentRule = com.ibm.rules.generated.ruleflow.flow.`mainflow>累計計算規則`.SEQEngine.this.getRuleInstance(com.ibm.rules.generated.ruleflow.flow.`mainflow>累計計算規則`.SEQEngineDefinition.rulesArray[44], bindings);
+        this.currentRule = currentRule;
+        if (currentRule != null) {
+          com.ibm.rules.engine.fastpath.runtime.FastRuleAction action = (com.ibm.rules.engine.fastpath.runtime.FastRuleAction)com.ibm.rules.generated.ruleflow.flow.`mainflow>累計計算規則`.SEQEngineDefinition.rulesArray[44].getRuleActions().get(0);
+          currentRule.setRuleAction(action);
+          com.ibm.rules.engine.runtime.impl.AbstractEngineData abstractEngineData = com.ibm.rules.generated.ruleflow.flow.`mainflow>累計計算規則`.SEQEngine.this.engineData;
+          com.ibm.rules.generated.ruleflow.flow.`mainflow>累計計算規則`.SEQEngine.this.ruleExecutionStarted(com.ibm.rules.generated.ruleflow.flow.`mainflow>累計計算規則`.SEQEngine.this, currentRule);
+          com.ibm.rules.generated.ruleflow.flow.`mainflow>累計計算規則`.SEQEngine.this.ruleCounter+= 1;
+          try {
+            abstractEngineData.pushExecutionObject(currentRule);
+            {
+              _var214.funeralTotal = _var214.funeralTotal + com.Mli.NB.rule.util.ValueUtil.countFaceAmt(`varResultjava.util.ArrayList<com.Mli.NB.rule.bom.InvalidPlanInfo>2`);
+            }
+            
+          }
+          finally {
+            abstractEngineData.popExecutionObject();
+          }
+          
+          com.ibm.rules.generated.ruleflow.flow.`mainflow>累計計算規則`.SEQEngine.this.ruleExecutionEnded(com.ibm.rules.generated.ruleflow.flow.`mainflow>累計計算規則`.SEQEngine.this, currentRule);
+        }
+        
+      }
+      
+    }
+    
+  }
+  
+}
+' 陳述式時
+	轉換 'if (new java.lang.String[]{"I1", "SS"}.contains(_var214.clientIdent) || com.Mli.NB.rule.base.basehelper.getSubString(_var214.clientIdent, 1, 1).equals("C")) {
+  com.Mli.NB.rule.bom.InvalidPolicy _var215;
+  java.util.List-0, +oo of com.Mli.NB.rule.bom.InvalidPolicy _rV_In_loopValues85;
+  _rV_In_loopValues85 = _var214.invalidPolicy;
+  if (_rV_In_loopValues85 != null) {
+    for (java.lang.Object object : _rV_In_loopValues85){
+      _var215 =  (object instanceof com.Mli.NB.rule.bom.InvalidPolicy ? (com.Mli.NB.rule.bom.InvalidPolicy)object : null );
+      if (_var215 != null) {
+        if (! _var215.poStsCode.equals("42") && ((ilog.rules.brl.Date)com.Mli.NB.rule.base.basehelper.getFormatDate(_var215.gapStartDate)).afterOrEquals((ilog.rules.brl.Date)com.Mli.NB.rule.base.basehelper.getBeforeYear(_var213.appApplyDate, 2)) || _var215.poStsCode.equals("42") && ((ilog.rules.brl.Date)com.Mli.NB.rule.base.basehelper.getFormatDate(_var215.gapStartDateR)).afterOrEquals((ilog.rules.brl.Date)com.Mli.NB.rule.base.basehelper.getBeforeYear(_var213.appApplyDate, 2))) {
+          java.util.ArrayList<com.Mli.NB.rule.bom.InvalidPlanInfo> `varResultjava.util.ArrayList<com.Mli.NB.rule.bom.InvalidPlanInfo>2` = new java.util.ArrayList<com.Mli.NB.rule.bom.InvalidPlanInfo>();
+          com.Mli.NB.rule.bom.InvalidPlanInfo _var0;
+          java.util.List-0, +oo of com.Mli.NB.rule.bom.InvalidPlanInfo _rV_In_loopValues0;
+          _rV_In_loopValues0 = _var215.invalidPlanInfo;
+          if (_rV_In_loopValues0 != null) {
+            for (java.lang.Object object : _rV_In_loopValues0){
+              _var0 =  (object instanceof com.Mli.NB.rule.bom.InvalidPlanInfo ? (com.Mli.NB.rule.bom.InvalidPlanInfo)object : null );
+              if (_var0 != null) {
+                if ((com.Mli.NB.rule.base.basehelper.getSubString(_var0.benefitPtr, 1, 1).equals("1") && ! _var0.planAbbrCode.equals("ADDR")) && (((new java.lang.String[]{"1", "9"}.contains(com.Mli.NB.rule.base.basehelper.getSubString(_var215.policyNo, 1, 1)) && ! _var215.poStsCode.equals("42") || ((! new java.lang.String[]{"1", "9"}.contains(com.Mli.NB.rule.base.basehelper.getSubString(_var215.policyNo, 1, 1)) && ! _var215.poStsCode.equals("42")) && ((ilog.rules.brl.Date)com.Mli.NB.rule.base.basehelper.getFormatDate(_var215.gapStartDateR)).before((ilog.rules.brl.Date)com.Mli.NB.rule.base.basehelper.getBeforeYear(_var213.appApplyDate, 2))) && _var0.coverageNo.equals("1")) || (! new java.lang.String[]{"1", "9"}.contains(com.Mli.NB.rule.base.basehelper.getSubString(_var215.policyNo, 1, 1)) && ! _var215.poStsCode.equals("42")) && ((ilog.rules.brl.Date)com.Mli.NB.rule.base.basehelper.getFormatDate(_var215.gapStartDateR)).afterOrEquals((ilog.rules.brl.Date)com.Mli.NB.rule.base.basehelper.getBeforeYear(_var213.appApplyDate, 2))) || _var215.poStsCode.equals("42") && ! _var0.coverageNo.equals("1"))) {
+                  `varResultjava.util.ArrayList<com.Mli.NB.rule.bom.InvalidPlanInfo>2`.add(_var0);
+                }
+                
+              }
+              
+            }
+            
+          }
+          
+          com.ibm.rules.engine.fastpath.runtime.RuleInstanceImpl currentRule;
+          java.lang.Object[] bindings = new java.lang.Object[5];
+          bindings[0] = _var212;
+          bindings[1] = _var213;
+          bindings[2] = _var214;
+          bindings[3] = _var215;
+          bindings[4] = `varResultjava.util.ArrayList<com.Mli.NB.rule.bom.InvalidPlanInfo>2`;
+          currentRule = com.ibm.rules.generated.ruleflow.flow.`mainflow>累計計算規則`.SEQEngine.this.getRuleInstance(com.ibm.rules.generated.ruleflow.flow.`mainflow>累計計算規則`.SEQEngineDefinition.rulesArray[44], bindings);
+          this.currentRule = currentRule;
+          if (currentRule != null) {
+            com.ibm.rules.engine.fastpath.runtime.FastRuleAction action = (com.ibm.rules.engine.fastpath.runtime.FastRuleAction)com.ibm.rules.generated.ruleflow.flow.`mainflow>累計計算規則`.SEQEngineDefinition.rulesArray[44].getRuleActions().get(0);
+            currentRule.setRuleAction(action);
+            com.ibm.rules.engine.runtime.impl.AbstractEngineData abstractEngineData = com.ibm.rules.generated.ruleflow.flow.`mainflow>累計計算規則`.SEQEngine.this.engineData;
+            com.ibm.rules.generated.ruleflow.flow.`mainflow>累計計算規則`.SEQEngine.this.ruleExecutionStarted(com.ibm.rules.generated.ruleflow.flow.`mainflow>累計計算規則`.SEQEngine.this, currentRule);
+            com.ibm.rules.generated.ruleflow.flow.`mainflow>累計計算規則`.SEQEngine.this.ruleCounter+= 1;
+            try {
+              abstractEngineData.pushExecutionObject(currentRule);
+              {
+                _var214.funeralTotal = _var214.funeralTotal + com.Mli.NB.rule.util.ValueUtil.countFaceAmt(`varResultjava.util.ArrayList<com.Mli.NB.rule.bom.InvalidPlanInfo>2`);
+              }
+              
+            }
+            finally {
+              abstractEngineData.popExecutionObject();
+            }
+            
+            com.ibm.rules.generated.ruleflow.flow.`mainflow>累計計算規則`.SEQEngine.this.ruleExecutionEnded(com.ibm.rules.generated.ruleflow.flow.`mainflow>累計計算規則`.SEQEngine.this, currentRule);
+          }
+          
+        }
+        
+      }
+      
+    }
+    
+  }
+  
+}
+' 陳述式時
+	轉換 'if (_var214 != null) {
+  if (new java.lang.String[]{"I1", "SS"}.contains(_var214.clientIdent) || com.Mli.NB.rule.base.basehelper.getSubString(_var214.clientIdent, 1, 1).equals("C")) {
+    com.Mli.NB.rule.bom.InvalidPolicy _var215;
+    java.util.List-0, +oo of com.Mli.NB.rule.bom.InvalidPolicy _rV_In_loopValues85;
+    _rV_In_loopValues85 = _var214.invalidPolicy;
+    if (_rV_In_loopValues85 != null) {
+      for (java.lang.Object object : _rV_In_loopValues85){
+        _var215 =  (object instanceof com.Mli.NB.rule.bom.InvalidPolicy ? (com.Mli.NB.rule.bom.InvalidPolicy)object : null );
+        if (_var215 != null) {
+          if (! _var215.poStsCode.equals("42") && ((ilog.rules.brl.Date)com.Mli.NB.rule.base.basehelper.getFormatDate(_var215.gapStartDate)).afterOrEquals((ilog.rules.brl.Date)com.Mli.NB.rule.base.basehelper.getBeforeYear(_var213.appApplyDate, 2)) || _var215.poStsCode.equals("42") && ((ilog.rules.brl.Date)com.Mli.NB.rule.base.basehelper.getFormatDate(_var215.gapStartDateR)).afterOrEquals((ilog.rules.brl.Date)com.Mli.NB.rule.base.basehelper.getBeforeYear(_var213.appApplyDate, 2))) {
+            java.util.ArrayList<com.Mli.NB.rule.bom.InvalidPlanInfo> `varResultjava.util.ArrayList<com.Mli.NB.rule.bom.InvalidPlanInfo>2` = new java.util.ArrayList<com.Mli.NB.rule.bom.InvalidPlanInfo>();
+            com.Mli.NB.rule.bom.InvalidPlanInfo _var0;
+            java.util.List-0, +oo of com.Mli.NB.rule.bom.InvalidPlanInfo _rV_In_loopValues0;
+            _rV_In_loopValues0 = _var215.invalidPlanInfo;
+            if (_rV_In_loopValues0 != null) {
+              for (java.lang.Object object : _rV_In_loopValues0){
+                _var0 =  (object instanceof com.Mli.NB.rule.bom.InvalidPlanInfo ? (com.Mli.NB.rule.bom.InvalidPlanInfo)object : null );
+                if (_var0 != null) {
+                  if ((com.Mli.NB.rule.base.basehelper.getSubString(_var0.benefitPtr, 1, 1).equals("1") && ! _var0.planAbbrCode.equals("ADDR")) && (((new java.lang.String[]{"1", "9"}.contains(com.Mli.NB.rule.base.basehelper.getSubString(_var215.policyNo, 1, 1)) && ! _var215.poStsCode.equals("42") || ((! new java.lang.String[]{"1", "9"}.contains(com.Mli.NB.rule.base.basehelper.getSubString(_var215.policyNo, 1, 1)) && ! _var215.poStsCode.equals("42")) && ((ilog.rules.brl.Date)com.Mli.NB.rule.base.basehelper.getFormatDate(_var215.gapStartDateR)).before((ilog.rules.brl.Date)com.Mli.NB.rule.base.basehelper.getBeforeYear(_var213.appApplyDate, 2))) && _var0.coverageNo.equals("1")) || (! new java.lang.String[]{"1", "9"}.contains(com.Mli.NB.rule.base.basehelper.getSubString(_var215.policyNo, 1, 1)) && ! _var215.poStsCode.equals("42")) && ((ilog.rules.brl.Date)com.Mli.NB.rule.base.basehelper.getFormatDate(_var215.gapStartDateR)).afterOrEquals((ilog.rules.brl.Date)com.Mli.NB.rule.base.basehelper.getBeforeYear(_var213.appApplyDate, 2))) || _var215.poStsCode.equals("42") && ! _var0.coverageNo.equals("1"))) {
+                    `varResultjava.util.ArrayList<com.Mli.NB.rule.bom.InvalidPlanInfo>2`.add(_var0);
+                  }
+                  
+                }
+                
+              }
+              
+            }
+            
+            com.ibm.rules.engine.fastpath.runtime.RuleInstanceImpl currentRule;
+            java.lang.Object[] bindings = new java.lang.Object[5];
+            bindings[0] = _var212;
+            bindings[1] = _var213;
+            bindings[2] = _var214;
+            bindings[3] = _var215;
+            bindings[4] = `varResultjava.util.ArrayList<com.Mli.NB.rule.bom.InvalidPlanInfo>2`;
+            currentRule = com.ibm.rules.generated.ruleflow.flow.`mainflow>累計計算規則`.SEQEngine.this.getRuleInstance(com.ibm.rules.generated.ruleflow.flow.`mainflow>累計計算規則`.SEQEngineDefinition.rulesArray[44], bindings);
+            this.currentRule = currentRule;
+            if (currentRule != null) {
+              com.ibm.rules.engine.fastpath.runtime.FastRuleAction action = (com.ibm.rules.engine.fastpath.runtime.FastRuleAction)com.ibm.rules.generated.ruleflow.flow.`mainflow>累計計算規則`.SEQEngineDefinition.rulesArray[44].getRuleActions().get(0);
+              currentRule.setRuleAction(action);
+              com.ibm.rules.engine.runtime.impl.AbstractEngineData abstractEngineData = com.ibm.rules.generated.ruleflow.flow.`mainflow>累計計算規則`.SEQEngine.this.engineData;
+              com.ibm.rules.generated.ruleflow.flow.`mainflow>累計計算規則`.SEQEngine.this.ruleExecutionStarted(com.ibm.rules.generated.ruleflow.flow.`mainflow>累計計算規則`.SEQEngine.this, currentRule);
+              com.ibm.rules.generated.ruleflow.flow.`mainflow>累計計算規則`.SEQEngine.this.ruleCounter+= 1;
+              try {
+                abstractEngineData.pushExecutionObject(currentRule);
+                {
+                  _var214.funeralTotal = _var214.funeralTotal + com.Mli.NB.rule.util.ValueUtil.countFaceAmt(`varResultjava.util.ArrayList<com.Mli.NB.rule.bom.InvalidPlanInfo>2`);
+                }
+                
+              }
+              finally {
+                abstractEngineData.popExecutionObject();
+              }
+              
+              com.ibm.rules.generated.ruleflow.flow.`mainflow>累計計算規則`.SEQEngine.this.ruleExecutionEnded(com.ibm.rules.generated.ruleflow.flow.`mainflow>累計計算規則`.SEQEngine.this, currentRule);
+            }
+            
+          }
+          
+        }
+        
+      }
+      
+    }
+    
+  }
+  
+}
+' 陳述式時
+	轉換 'for (java.lang.Object object : _rV_In_loopValues86){
+  _var214 =  (object instanceof com.Mli.NB.rule.bom.Insured ? (com.Mli.NB.rule.bom.Insured)object : null );
+  if (_var214 != null) {
+    if (new java.lang.String[]{"I1", "SS"}.contains(_var214.clientIdent) || com.Mli.NB.rule.base.basehelper.getSubString(_var214.clientIdent, 1, 1).equals("C")) {
+      com.Mli.NB.rule.bom.InvalidPolicy _var215;
+      java.util.List-0, +oo of com.Mli.NB.rule.bom.InvalidPolicy _rV_In_loopValues85;
+      _rV_In_loopValues85 = _var214.invalidPolicy;
+      if (_rV_In_loopValues85 != null) {
+        for (java.lang.Object object : _rV_In_loopValues85){
+          _var215 =  (object instanceof com.Mli.NB.rule.bom.InvalidPolicy ? (com.Mli.NB.rule.bom.InvalidPolicy)object : null );
+          if (_var215 != null) {
+            if (! _var215.poStsCode.equals("42") && ((ilog.rules.brl.Date)com.Mli.NB.rule.base.basehelper.getFormatDate(_var215.gapStartDate)).afterOrEquals((ilog.rules.brl.Date)com.Mli.NB.rule.base.basehelper.getBeforeYear(_var213.appApplyDate, 2)) || _var215.poStsCode.equals("42") && ((ilog.rules.brl.Date)com.Mli.NB.rule.base.basehelper.getFormatDate(_var215.gapStartDateR)).afterOrEquals((ilog.rules.brl.Date)com.Mli.NB.rule.base.basehelper.getBeforeYear(_var213.appApplyDate, 2))) {
+              java.util.ArrayList<com.Mli.NB.rule.bom.InvalidPlanInfo> `varResultjava.util.ArrayList<com.Mli.NB.rule.bom.InvalidPlanInfo>2` = new java.util.ArrayList<com.Mli.NB.rule.bom.InvalidPlanInfo>();
+              com.Mli.NB.rule.bom.InvalidPlanInfo _var0;
+              java.util.List-0, +oo of com.Mli.NB.rule.bom.InvalidPlanInfo _rV_In_loopValues0;
+              _rV_In_loopValues0 = _var215.invalidPlanInfo;
+              if (_rV_In_loopValues0 != null) {
+                for (java.lang.Object object : _rV_In_loopValues0){
+                  _var0 =  (object instanceof com.Mli.NB.rule.bom.InvalidPlanInfo ? (com.Mli.NB.rule.bom.InvalidPlanInfo)object : null );
+                  if (_var0 != null) {
+                    if ((com.Mli.NB.rule.base.basehelper.getSubString(_var0.benefitPtr, 1, 1).equals("1") && ! _var0.planAbbrCode.equals("ADDR")) && (((new java.lang.String[]{"1", "9"}.contains(com.Mli.NB.rule.base.basehelper.getSubString(_var215.policyNo, 1, 1)) && ! _var215.poStsCode.equals("42") || ((! new java.lang.String[]{"1", "9"}.contains(com.Mli.NB.rule.base.basehelper.getSubString(_var215.policyNo, 1, 1)) && ! _var215.poStsCode.equals("42")) && ((ilog.rules.brl.Date)com.Mli.NB.rule.base.basehelper.getFormatDate(_var215.gapStartDateR)).before((ilog.rules.brl.Date)com.Mli.NB.rule.base.basehelper.getBeforeYear(_var213.appApplyDate, 2))) && _var0.coverageNo.equals("1")) || (! new java.lang.String[]{"1", "9"}.contains(com.Mli.NB.rule.base.basehelper.getSubString(_var215.policyNo, 1, 1)) && ! _var215.poStsCode.equals("42")) && ((ilog.rules.brl.Date)com.Mli.NB.rule.base.basehelper.getFormatDate(_var215.gapStartDateR)).afterOrEquals((ilog.rules.brl.Date)com.Mli.NB.rule.base.basehelper.getBeforeYear(_var213.appApplyDate, 2))) || _var215.poStsCode.equals("42") && ! _var0.coverageNo.equals("1"))) {
+                      `varResultjava.util.ArrayList<com.Mli.NB.rule.bom.InvalidPlanInfo>2`.add(_var0);
+                    }
+                    
+                  }
+                  
+                }
+                
+              }
+              
+              com.ibm.rules.engine.fastpath.runtime.RuleInstanceImpl currentRule;
+              java.lang.Object[] bindings = new java.lang.Object[5];
+              bindings[0] = _var212;
+              bindings[1] = _var213;
+              bindings[2] = _var214;
+              bindings[3] = _var215;
+              bindings[4] = `varResultjava.util.ArrayList<com.Mli.NB.rule.bom.InvalidPlanInfo>2`;
+              currentRule = com.ibm.rules.generated.ruleflow.flow.`mainflow>累計計算規則`.SEQEngine.this.getRuleInstance(com.ibm.rules.generated.ruleflow.flow.`mainflow>累計計算規則`.SEQEngineDefinition.rulesArray[44], bindings);
+              this.currentRule = currentRule;
+              if (currentRule != null) {
+                com.ibm.rules.engine.fastpath.runtime.FastRuleAction action = (com.ibm.rules.engine.fastpath.runtime.FastRuleAction)com.ibm.rules.generated.ruleflow.flow.`mainflow>累計計算規則`.SEQEngineDefinition.rulesArray[44].getRuleActions().get(0);
+                currentRule.setRuleAction(action);
+                com.ibm.rules.engine.runtime.impl.AbstractEngineData abstractEngineData = com.ibm.rules.generated.ruleflow.flow.`mainflow>累計計算規則`.SEQEngine.this.engineData;
+                com.ibm.rules.generated.ruleflow.flow.`mainflow>累計計算規則`.SEQEngine.this.ruleExecutionStarted(com.ibm.rules.generated.ruleflow.flow.`mainflow>累計計算規則`.SEQEngine.this, currentRule);
+                com.ibm.rules.generated.ruleflow.flow.`mainflow>累計計算規則`.SEQEngine.this.ruleCounter+= 1;
+                try {
+                  abstractEngineData.pushExecutionObject(currentRule);
+                  {
+                    _var214.funeralTotal = _var214.funeralTotal + com.Mli.NB.rule.util.ValueUtil.countFaceAmt(`varResultjava.util.ArrayList<com.Mli.NB.rule.bom.InvalidPlanInfo>2`);
+                  }
+                  
+                }
+                finally {
+                  abstractEngineData.popExecutionObject();
+                }
+                
+                com.ibm.rules.generated.ruleflow.flow.`mainflow>累計計算規則`.SEQEngine.this.ruleExecutionEnded(com.ibm.rules.generated.ruleflow.flow.`mainflow>累計計算規則`.SEQEngine.this, currentRule);
+              }
+              
+            }
+            
+          }
+          
+        }
+        
+      }
+      
+    }
+    
+  }
+  
+}
+' 陳述式時
+	轉換 'if (_rV_In_loopValues86 != null) {
+  for (java.lang.Object object : _rV_In_loopValues86){
+    _var214 =  (object instanceof com.Mli.NB.rule.bom.Insured ? (com.Mli.NB.rule.bom.Insured)object : null );
+    if (_var214 != null) {
+      if (new java.lang.String[]{"I1", "SS"}.contains(_var214.clientIdent) || com.Mli.NB.rule.base.basehelper.getSubString(_var214.clientIdent, 1, 1).equals("C")) {
+        com.Mli.NB.rule.bom.InvalidPolicy _var215;
+        java.util.List-0, +oo of com.Mli.NB.rule.bom.InvalidPolicy _rV_In_loopValues85;
+        _rV_In_loopValues85 = _var214.invalidPolicy;
+        if (_rV_In_loopValues85 != null) {
+          for (java.lang.Object object : _rV_In_loopValues85){
+            _var215 =  (object instanceof com.Mli.NB.rule.bom.InvalidPolicy ? (com.Mli.NB.rule.bom.InvalidPolicy)object : null );
+            if (_var215 != null) {
+              if (! _var215.poStsCode.equals("42") && ((ilog.rules.brl.Date)com.Mli.NB.rule.base.basehelper.getFormatDate(_var215.gapStartDate)).afterOrEquals((ilog.rules.brl.Date)com.Mli.NB.rule.base.basehelper.getBeforeYear(_var213.appApplyDate, 2)) || _var215.poStsCode.equals("42") && ((ilog.rules.brl.Date)com.Mli.NB.rule.base.basehelper.getFormatDate(_var215.gapStartDateR)).afterOrEquals((ilog.rules.brl.Date)com.Mli.NB.rule.base.basehelper.getBeforeYear(_var213.appApplyDate, 2))) {
+                java.util.ArrayList<com.Mli.NB.rule.bom.InvalidPlanInfo> `varResultjava.util.ArrayList<com.Mli.NB.rule.bom.InvalidPlanInfo>2` = new java.util.ArrayList<com.Mli.NB.rule.bom.InvalidPlanInfo>();
+                com.Mli.NB.rule.bom.InvalidPlanInfo _var0;
+                java.util.List-0, +oo of com.Mli.NB.rule.bom.InvalidPlanInfo _rV_In_loopValues0;
+                _rV_In_loopValues0 = _var215.invalidPlanInfo;
+                if (_rV_In_loopValues0 != null) {
+                  for (java.lang.Object object : _rV_In_loopValues0){
+                    _var0 =  (object instanceof com.Mli.NB.rule.bom.InvalidPlanInfo ? (com.Mli.NB.rule.bom.InvalidPlanInfo)object : null );
+                    if (_var0 != null) {
+                      if ((com.Mli.NB.rule.base.basehelper.getSubString(_var0.benefitPtr, 1, 1).equals("1") && ! _var0.planAbbrCode.equals("ADDR")) && (((new java.lang.String[]{"1", "9"}.contains(com.Mli.NB.rule.base.basehelper.getSubString(_var215.policyNo, 1, 1)) && ! _var215.poStsCode.equals("42") || ((! new java.lang.String[]{"1", "9"}.contains(com.Mli.NB.rule.base.basehelper.getSubString(_var215.policyNo, 1, 1)) && ! _var215.poStsCode.equals("42")) && ((ilog.rules.brl.Date)com.Mli.NB.rule.base.basehelper.getFormatDate(_var215.gapStartDateR)).before((ilog.rules.brl.Date)com.Mli.NB.rule.base.basehelper.getBeforeYear(_var213.appApplyDate, 2))) && _var0.coverageNo.equals("1")) || (! new java.lang.String[]{"1", "9"}.contains(com.Mli.NB.rule.base.basehelper.getSubString(_var215.policyNo, 1, 1)) && ! _var215.poStsCode.equals("42")) && ((ilog.rules.brl.Date)com.Mli.NB.rule.base.basehelper.getFormatDate(_var215.gapStartDateR)).afterOrEquals((ilog.rules.brl.Date)com.Mli.NB.rule.base.basehelper.getBeforeYear(_var213.appApplyDate, 2))) || _var215.poStsCode.equals("42") && ! _var0.coverageNo.equals("1"))) {
+                        `varResultjava.util.ArrayList<com.Mli.NB.rule.bom.InvalidPlanInfo>2`.add(_var0);
+                      }
+                      
+                    }
+                    
+                  }
+                  
+                }
+                
+                com.ibm.rules.engine.fastpath.runtime.RuleInstanceImpl currentRule;
+                java.lang.Object[] bindings = new java.lang.Object[5];
+                bindings[0] = _var212;
+                bindings[1] = _var213;
+                bindings[2] = _var214;
+                bindings[3] = _var215;
+                bindings[4] = `varResultjava.util.ArrayList<com.Mli.NB.rule.bom.InvalidPlanInfo>2`;
+                currentRule = com.ibm.rules.generated.ruleflow.flow.`mainflow>累計計算規則`.SEQEngine.this.getRuleInstance(com.ibm.rules.generated.ruleflow.flow.`mainflow>累計計算規則`.SEQEngineDefinition.rulesArray[44], bindings);
+                this.currentRule = currentRule;
+                if (currentRule != null) {
+                  com.ibm.rules.engine.fastpath.runtime.FastRuleAction action = (com.ibm.rules.engine.fastpath.runtime.FastRuleAction)com.ibm.rules.generated.ruleflow.flow.`mainflow>累計計算規則`.SEQEngineDefinition.rulesArray[44].getRuleActions().get(0);
+                  currentRule.setRuleAction(action);
+                  com.ibm.rules.engine.runtime.impl.AbstractEngineData abstractEngineData = com.ibm.rules.generated.ruleflow.flow.`mainflow>累計計算規則`.SEQEngine.this.engineData;
+                  com.ibm.rules.generated.ruleflow.flow.`mainflow>累計計算規則`.SEQEngine.this.ruleExecutionStarted(com.ibm.rules.generated.ruleflow.flow.`mainflow>累計計算規則`.SEQEngine.this, currentRule);
+                  com.ibm.rules.generated.ruleflow.flow.`mainflow>累計計算規則`.SEQEngine.this.ruleCounter+= 1;
+                  try {
+                    abstractEngineData.pushExecutionObject(currentRule);
+                    {
+                      _var214.funeralTotal = _var214.funeralTotal + com.Mli.NB.rule.util.ValueUtil.countFaceAmt(`varResultjava.util.ArrayList<com.Mli.NB.rule.bom.InvalidPlanInfo>2`);
+                    }
+                    
+                  }
+                  finally {
+                    abstractEngineData.popExecutionObject();
+                  }
+                  
+                  com.ibm.rules.generated.ruleflow.flow.`mainflow>累計計算規則`.SEQEngine.this.ruleExecutionEnded(com.ibm.rules.generated.ruleflow.flow.`mainflow>累計計算規則`.SEQEngine.this, currentRule);
+                }
+                
+              }
+              
+            }
+            
+          }
+          
+        }
+        
+      }
+      
+    }
+    
+  }
+  
+}
+' 陳述式時
+	轉換 'if (_var213 != null) {
+  com.Mli.NB.rule.bom.Insured _var214;
+  java.util.List-0, +oo of com.Mli.NB.rule.bom.Insured _rV_In_loopValues86;
+  _rV_In_loopValues86 = _var213.insured;
+  if (_rV_In_loopValues86 != null) {
+    for (java.lang.Object object : _rV_In_loopValues86){
+      _var214 =  (object instanceof com.Mli.NB.rule.bom.Insured ? (com.Mli.NB.rule.bom.Insured)object : null );
+      if (_var214 != null) {
+        if (new java.lang.String[]{"I1", "SS"}.contains(_var214.clientIdent) || com.Mli.NB.rule.base.basehelper.getSubString(_var214.clientIdent, 1, 1).equals("C")) {
+          com.Mli.NB.rule.bom.InvalidPolicy _var215;
+          java.util.List-0, +oo of com.Mli.NB.rule.bom.InvalidPolicy _rV_In_loopValues85;
+          _rV_In_loopValues85 = _var214.invalidPolicy;
+          if (_rV_In_loopValues85 != null) {
+            for (java.lang.Object object : _rV_In_loopValues85){
+              _var215 =  (object instanceof com.Mli.NB.rule.bom.InvalidPolicy ? (com.Mli.NB.rule.bom.InvalidPolicy)object : null );
+              if (_var215 != null) {
+                if (! _var215.poStsCode.equals("42") && ((ilog.rules.brl.Date)com.Mli.NB.rule.base.basehelper.getFormatDate(_var215.gapStartDate)).afterOrEquals((ilog.rules.brl.Date)com.Mli.NB.rule.base.basehelper.getBeforeYear(_var213.appApplyDate, 2)) || _var215.poStsCode.equals("42") && ((ilog.rules.brl.Date)com.Mli.NB.rule.base.basehelper.getFormatDate(_var215.gapStartDateR)).afterOrEquals((ilog.rules.brl.Date)com.Mli.NB.rule.base.basehelper.getBeforeYear(_var213.appApplyDate, 2))) {
+                  java.util.ArrayList<com.Mli.NB.rule.bom.InvalidPlanInfo> `varResultjava.util.ArrayList<com.Mli.NB.rule.bom.InvalidPlanInfo>2` = new java.util.ArrayList<com.Mli.NB.rule.bom.InvalidPlanInfo>();
+                  com.Mli.NB.rule.bom.InvalidPlanInfo _var0;
+                  java.util.List-0, +oo of com.Mli.NB.rule.bom.InvalidPlanInfo _rV_In_loopValues0;
+                  _rV_In_loopValues0 = _var215.invalidPlanInfo;
+                  if (_rV_In_loopValues0 != null) {
+                    for (java.lang.Object object : _rV_In_loopValues0){
+                      _var0 =  (object instanceof com.Mli.NB.rule.bom.InvalidPlanInfo ? (com.Mli.NB.rule.bom.InvalidPlanInfo)object : null );
+                      if (_var0 != null) {
+                        if ((com.Mli.NB.rule.base.basehelper.getSubString(_var0.benefitPtr, 1, 1).equals("1") && ! _var0.planAbbrCode.equals("ADDR")) && (((new java.lang.String[]{"1", "9"}.contains(com.Mli.NB.rule.base.basehelper.getSubString(_var215.policyNo, 1, 1)) && ! _var215.poStsCode.equals("42") || ((! new java.lang.String[]{"1", "9"}.contains(com.Mli.NB.rule.base.basehelper.getSubString(_var215.policyNo, 1, 1)) && ! _var215.poStsCode.equals("42")) && ((ilog.rules.brl.Date)com.Mli.NB.rule.base.basehelper.getFormatDate(_var215.gapStartDateR)).before((ilog.rules.brl.Date)com.Mli.NB.rule.base.basehelper.getBeforeYear(_var213.appApplyDate, 2))) && _var0.coverageNo.equals("1")) || (! new java.lang.String[]{"1", "9"}.contains(com.Mli.NB.rule.base.basehelper.getSubString(_var215.policyNo, 1, 1)) && ! _var215.poStsCode.equals("42")) && ((ilog.rules.brl.Date)com.Mli.NB.rule.base.basehelper.getFormatDate(_var215.gapStartDateR)).afterOrEquals((ilog.rules.brl.Date)com.Mli.NB.rule.base.basehelper.getBeforeYear(_var213.appApplyDate, 2))) || _var215.poStsCode.equals("42") && ! _var0.coverageNo.equals("1"))) {
+                          `varResultjava.util.ArrayList<com.Mli.NB.rule.bom.InvalidPlanInfo>2`.add(_var0);
+                        }
+                        
+                      }
+                      
+                    }
+                    
+                  }
+                  
+                  com.ibm.rules.engine.fastpath.runtime.RuleInstanceImpl currentRule;
+                  java.lang.Object[] bindings = new java.lang.Object[5];
+                  bindings[0] = _var212;
+                  bindings[1] = _var213;
+                  bindings[2] = _var214;
+                  bindings[3] = _var215;
+                  bindings[4] = `varResultjava.util.ArrayList<com.Mli.NB.rule.bom.InvalidPlanInfo>2`;
+                  currentRule = com.ibm.rules.generated.ruleflow.flow.`mainflow>累計計算規則`.SEQEngine.this.getRuleInstance(com.ibm.rules.generated.ruleflow.flow.`mainflow>累計計算規則`.SEQEngineDefinition.rulesArray[44], bindings);
+                  this.currentRule = currentRule;
+                  if (currentRule != null) {
+                    com.ibm.rules.engine.fastpath.runtime.FastRuleAction action = (com.ibm.rules.engine.fastpath.runtime.FastRuleAction)com.ibm.rules.generated.ruleflow.flow.`mainflow>累計計算規則`.SEQEngineDefinition.rulesArray[44].getRuleActions().get(0);
+                    currentRule.setRuleAction(action);
+                    com.ibm.rules.engine.runtime.impl.AbstractEngineData abstractEngineData = com.ibm.rules.generated.ruleflow.flow.`mainflow>累計計算規則`.SEQEngine.this.engineData;
+                    com.ibm.rules.generated.ruleflow.flow.`mainflow>累計計算規則`.SEQEngine.this.ruleExecutionStarted(com.ibm.rules.generated.ruleflow.flow.`mainflow>累計計算規則`.SEQEngine.this, currentRule);
+                    com.ibm.rules.generated.ruleflow.flow.`mainflow>累計計算規則`.SEQEngine.this.ruleCounter+= 1;
+                    try {
+                      abstractEngineData.pushExecutionObject(currentRule);
+                      {
+                        _var214.funeralTotal = _var214.funeralTotal + com.Mli.NB.rule.util.ValueUtil.countFaceAmt(`varResultjava.util.ArrayList<com.Mli.NB.rule.bom.InvalidPlanInfo>2`);
+                      }
+                      
+                    }
+                    finally {
+                      abstractEngineData.popExecutionObject();
+                    }
+                    
+                    com.ibm.rules.generated.ruleflow.flow.`mainflow>累計計算規則`.SEQEngine.this.ruleExecutionEnded(com.ibm.rules.generated.ruleflow.flow.`mainflow>累計計算規則`.SEQEngine.this, currentRule);
+                  }
+                  
+                }
+                
+              }
+              
+            }
+            
+          }
+          
+        }
+        
+      }
+      
+    }
+    
+  }
+  
+}
+' 陳述式時
+	轉換 'if (_var212 != null) {
+  com.Mli.NB.rule.bom.Policy _var213;
+  _var213 = com.ibm.rules.generated.fastpath.AbstractSeqEngine.this.engineData.inParam.policy;
+  if (_var213 != null) {
+    com.Mli.NB.rule.bom.Insured _var214;
+    java.util.List-0, +oo of com.Mli.NB.rule.bom.Insured _rV_In_loopValues86;
+    _rV_In_loopValues86 = _var213.insured;
+    if (_rV_In_loopValues86 != null) {
+      for (java.lang.Object object : _rV_In_loopValues86){
+        _var214 =  (object instanceof com.Mli.NB.rule.bom.Insured ? (com.Mli.NB.rule.bom.Insured)object : null );
+        if (_var214 != null) {
+          if (new java.lang.String[]{"I1", "SS"}.contains(_var214.clientIdent) || com.Mli.NB.rule.base.basehelper.getSubString(_var214.clientIdent, 1, 1).equals("C")) {
+            com.Mli.NB.rule.bom.InvalidPolicy _var215;
+            java.util.List-0, +oo of com.Mli.NB.rule.bom.InvalidPolicy _rV_In_loopValues85;
+            _rV_In_loopValues85 = _var214.invalidPolicy;
+            if (_rV_In_loopValues85 != null) {
+              for (java.lang.Object object : _rV_In_loopValues85){
+                _var215 =  (object instanceof com.Mli.NB.rule.bom.InvalidPolicy ? (com.Mli.NB.rule.bom.InvalidPolicy)object : null );
+                if (_var215 != null) {
+                  if (! _var215.poStsCode.equals("42") && ((ilog.rules.brl.Date)com.Mli.NB.rule.base.basehelper.getFormatDate(_var215.gapStartDate)).afterOrEquals((ilog.rules.brl.Date)com.Mli.NB.rule.base.basehelper.getBeforeYear(_var213.appApplyDate, 2)) || _var215.poStsCode.equals("42") && ((ilog.rules.brl.Date)com.Mli.NB.rule.base.basehelper.getFormatDate(_var215.gapStartDateR)).afterOrEquals((ilog.rules.brl.Date)com.Mli.NB.rule.base.basehelper.getBeforeYear(_var213.appApplyDate, 2))) {
+                    java.util.ArrayList<com.Mli.NB.rule.bom.InvalidPlanInfo> `varResultjava.util.ArrayList<com.Mli.NB.rule.bom.InvalidPlanInfo>2` = new java.util.ArrayList<com.Mli.NB.rule.bom.InvalidPlanInfo>();
+                    com.Mli.NB.rule.bom.InvalidPlanInfo _var0;
+                    java.util.List-0, +oo of com.Mli.NB.rule.bom.InvalidPlanInfo _rV_In_loopValues0;
+                    _rV_In_loopValues0 = _var215.invalidPlanInfo;
+                    if (_rV_In_loopValues0 != null) {
+                      for (java.lang.Object object : _rV_In_loopValues0){
+                        _var0 =  (object instanceof com.Mli.NB.rule.bom.InvalidPlanInfo ? (com.Mli.NB.rule.bom.InvalidPlanInfo)object : null );
+                        if (_var0 != null) {
+                          if ((com.Mli.NB.rule.base.basehelper.getSubString(_var0.benefitPtr, 1, 1).equals("1") && ! _var0.planAbbrCode.equals("ADDR")) && (((new java.lang.String[]{"1", "9"}.contains(com.Mli.NB.rule.base.basehelper.getSubString(_var215.policyNo, 1, 1)) && ! _var215.poStsCode.equals("42") || ((! new java.lang.String[]{"1", "9"}.contains(com.Mli.NB.rule.base.basehelper.getSubString(_var215.policyNo, 1, 1)) && ! _var215.poStsCode.equals("42")) && ((ilog.rules.brl.Date)com.Mli.NB.rule.base.basehelper.getFormatDate(_var215.gapStartDateR)).before((ilog.rules.brl.Date)com.Mli.NB.rule.base.basehelper.getBeforeYear(_var213.appApplyDate, 2))) && _var0.coverageNo.equals("1")) || (! new java.lang.String[]{"1", "9"}.contains(com.Mli.NB.rule.base.basehelper.getSubString(_var215.policyNo, 1, 1)) && ! _var215.poStsCode.equals("42")) && ((ilog.rules.brl.Date)com.Mli.NB.rule.base.basehelper.getFormatDate(_var215.gapStartDateR)).afterOrEquals((ilog.rules.brl.Date)com.Mli.NB.rule.base.basehelper.getBeforeYear(_var213.appApplyDate, 2))) || _var215.poStsCode.equals("42") && ! _var0.coverageNo.equals("1"))) {
+                            `varResultjava.util.ArrayList<com.Mli.NB.rule.bom.InvalidPlanInfo>2`.add(_var0);
+                          }
+                          
+                        }
+                        
+                      }
+                      
+                    }
+                    
+                    com.ibm.rules.engine.fastpath.runtime.RuleInstanceImpl currentRule;
+                    java.lang.Object[] bindings = new java.lang.Object[5];
+                    bindings[0] = _var212;
+                    bindings[1] = _var213;
+                    bindings[2] = _var214;
+                    bindings[3] = _var215;
+                    bindings[4] = `varResultjava.util.ArrayList<com.Mli.NB.rule.bom.InvalidPlanInfo>2`;
+                    currentRule = com.ibm.rules.generated.ruleflow.flow.`mainflow>累計計算規則`.SEQEngine.this.getRuleInstance(com.ibm.rules.generated.ruleflow.flow.`mainflow>累計計算規則`.SEQEngineDefinition.rulesArray[44], bindings);
+                    this.currentRule = currentRule;
+                    if (currentRule != null) {
+                      com.ibm.rules.engine.fastpath.runtime.FastRuleAction action = (com.ibm.rules.engine.fastpath.runtime.FastRuleAction)com.ibm.rules.generated.ruleflow.flow.`mainflow>累計計算規則`.SEQEngineDefinition.rulesArray[44].getRuleActions().get(0);
+                      currentRule.setRuleAction(action);
+                      com.ibm.rules.engine.runtime.impl.AbstractEngineData abstractEngineData = com.ibm.rules.generated.ruleflow.flow.`mainflow>累計計算規則`.SEQEngine.this.engineData;
+                      com.ibm.rules.generated.ruleflow.flow.`mainflow>累計計算規則`.SEQEngine.this.ruleExecutionStarted(com.ibm.rules.generated.ruleflow.flow.`mainflow>累計計算規則`.SEQEngine.this, currentRule);
+                      com.ibm.rules.generated.ruleflow.flow.`mainflow>累計計算規則`.SEQEngine.this.ruleCounter+= 1;
+                      try {
+                        abstractEngineData.pushExecutionObject(currentRule);
+                        {
+                          _var214.funeralTotal = _var214.funeralTotal + com.Mli.NB.rule.util.ValueUtil.countFaceAmt(`varResultjava.util.ArrayList<com.Mli.NB.rule.bom.InvalidPlanInfo>2`);
+                        }
+                        
+                      }
+                      finally {
+                        abstractEngineData.popExecutionObject();
+                      }
+                      
+                      com.ibm.rules.generated.ruleflow.flow.`mainflow>累計計算規則`.SEQEngine.this.ruleExecutionEnded(com.ibm.rules.generated.ruleflow.flow.`mainflow>累計計算規則`.SEQEngine.this, currentRule);
+                    }
+                    
+                  }
+                  
+                }
+                
+              }
+              
+            }
+            
+          }
+          
+        }
+        
+      }
+      
+    }
+    
+  }
+  
+}
+' 陳述式時
+	轉換 'rule_6()' 方法實作時
+	轉換 'rule_6()' 方法實作時
+	轉換類別成員 'com.ibm.rules.generated.ruleflow.flow.mainflow>累計計算規則.SEQEngine' 實作時
+	套用商業至執行 (B2X) 模型對映時
+GBRET0011E: 無法將 'java.util.ArrayList<com.Mli.NB.rule.bom.InvalidPlanInfo>' 轉換為 'java.util.Collection<? extends com.Mli.NB.rule.bom.PlanInfo>' 類型
