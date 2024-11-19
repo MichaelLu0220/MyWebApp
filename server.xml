@@ -1,0 +1,167 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<server description="new server">
+
+	<!-- Enable features -->
+	<featureManager>
+		<feature>servlet-3.1</feature>
+		<feature>jsp-2.3</feature>
+		<feature>jdbc-4.1</feature>
+		<feature>appSecurity-2.0</feature>
+		<feature>jaxrs-2.0</feature>
+		<feature>jndi-1.0</feature>
+		<feature>ssl-1.0</feature>
+		<feature>transportSecurity-1.0</feature>	
+		<!-- For Decision Runner -->
+		<feature>concurrent-1.0</feature>
+		<!-- For secure JMX connection -->
+		<feature>restConnector-2.0</feature>
+		<feature>localConnector-1.0</feature>
+		<!-- For json parsing used in miniloan-server -->
+		<feature>jsonp-1.0</feature>
+	    <feature>ldapRegistry-3.0</feature>
+		<feature>adminCenter-1.0</feature>
+	</featureManager>
+
+	<webAppSecurity  includePathInWASReqURL="true"/>
+
+	<webContainer deferServletLoad="false" enableDefaultIsElIgnoredInTag="true" enableJspMappingOverride="true"/>
+	<applicationMonitor updateTrigger="mbean"/>
+
+	<httpSession
+				 securityIntegrationEnabled="false"
+				 idReuse="true"
+				 useContextRootAsCookiePath="true"
+				 invalidateOnUnauthorizedSessionRequestException="true" />
+
+	<!-- To access this server from a remote client add a host attribute to
+		the following element, e.g. host="*" -->
+	<httpEndpoint id="defaultHttpEndpoint"
+				  host="*"
+				  httpPort="9080"
+				  httpsPort="9443" />
+
+
+	<!-- SSL Configuration -->
+    <keyStore id="defaultKeyStore" location="C:/IBM/wlp/usr/servers/dc/resources/security/key.p12" 
+              password="{xor}LSssHjsyNjE=" type="PKCS12" />
+    
+    <keyStore id="defaultTrustStore" location="C:/IBM/wlp/usr/servers/dc/resources/security/truststore.jks" 
+              password="{xor}LSssHjsyNjE=" type="JKS" />
+              
+    <ssl id="defaultSSLConfig" sslProtocol="TLSv1.2,TLSv1.3"
+         keyStoreRef="defaultKeyStore"
+         trustStoreRef="defaultTrustStore"
+         clientAuthentication="false"
+         enabledCipherSuites="TLS_AES_128_GCM_SHA256,TLS_AES_256_GCM_SHA384,TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256,TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384" />
+         <!-- clientAuthenticationSupported="true" -->
+    <sslDefault sslRef="defaultSSLConfig" />
+
+	<!--  Decision center DataSource -->
+    <dataSource id="jdbc/ilogDataSource" jndiName="jdbc/ilogDataSource">
+    	<jdbcDriver libraryRef="MSJDBCLib"/>
+    	<properties URL="jdbc:sqlserver://172.16.19.157:1433;databaseName=dcdb;encrypt=true;trustServerCertificate=true;LOCK_TIMEOUT=20000"
+            user="rtsAdmin"
+            password="RTS_Admin"
+			loginTimeout="30"
+			queryTimeout="60"/>
+    </dataSource>
+	<dataSource id="jdbc/serverextendedbrm" jndiName="jdbc/serverextendedbrm">
+    	<jdbcDriver libraryRef="MSJDBCLib"/>
+    	<properties URL="jdbc:sqlserver://172.16.19.157:1433;databaseName=rtsdb-serverextendedbrm;encrypt=true;trustServerCertificate=true;LOCK_TIMEOUT=20000"
+            user="rtsAdmin"
+            password="RTS_Admin"
+			loginTimeout="30"
+			queryTimeout="60"/>
+    </dataSource>
+	<library id="MSJDBCLib">
+		<file name="C:/IBM/wlp/usr/shared/resources/mssql/mssql-jdbc-12.8.1.jre8.jar"/>
+	</library>
+
+
+
+	<!-- Web application security -->
+	<basicRegistry id="basic" realm="customRealm">
+		<user name="rtsAdmin" password="rtsAdmin" />
+		<group name="AdminGroup">
+			<member name="rtsAdmin" />
+		</group>
+		<group name="InstallGroup">
+			<member name="rtsAdmin" />
+		</group>
+	</basicRegistry>
+
+	<!-- Assign 'wasAdmin' to Administrator -->
+	<administrator-role>
+		<user>rtsAdmin</user>
+	</administrator-role>
+	
+	<remoteFileAccess>
+   		<writeDir>C:\IBM\wlp\usr\servers\dc"</writeDir>
+	</remoteFileAccess>
+
+
+	<!-- LDAP connection-->
+	<ldapRegistry
+		id="ldap"
+		realm="SampleLdapIDSRealm"
+		host="ap.mlit.com.corp" port="389" ignoreCase="true"
+		ldapType="IBM Tivoli Directory Server"
+		baseDN="OU=MLI,DC=mlit,DC=com,DC=corp"
+		bindDN="CN=DCAD,OU=TPE Server,OU=MLI,DC=mlit,DC=com,DC=corp"
+		bindPassword="Mli90242!!">
+		<idsFilters
+            userFilter="(&amp;(uid=%v)(objectclass=ePerson))"
+            groupFilter="(&amp;(cn=%v)(|(objectclass=groupOfNames)(objectclass=groupOfUniqueNames)))" 
+            userIdMap="*:uid"
+            groupIdMap="*:cn" 
+            groupMemberIdMap="ibm-allGroups:member;ibm-allGroups:uniqueMember;groupOfNames:member;groupOfUniqueNames:uniqueMember" >
+		</idsFilters>
+	</ldapRegistry>
+
+
+
+	<!-- Business console -->
+	<application type="war" id="decisioncenter" name="decisioncenter"
+		location="${server.config.dir}/apps/decisioncenter.war">
+		<classloader delegation="parentLast" />
+		<application-bnd>
+			<security-role name="rtsAdministrator">
+                <group name="AdminGroup" access-id="group:SampleLdapIDSRealm/cn=AdminGroup"/>
+				<!--<group name="AdminGroup"/>-->
+				<!--<group name="AdminGroup"
+					id="AdminGroup"
+					access-id="group:odmrealm/CN=AdminGroup,ou=groups,dc=example,dc=com"/>-->
+			</security-role>
+			<security-role name="rtsInstaller">
+                <group name="InstallGroup" access-id="group:SampleLdapIDSRealm/cn=InstallGroup"/>
+				<!--<group name="InstallGroup"/>-->
+			</security-role>
+			<security-role name="rtsUser">
+				<special-subject type="ALL_AUTHENTICATED_USERS" />
+			</security-role>
+		</application-bnd>
+	</application>
+
+	<!-- DC REST API -->
+	<application type="war" id="decisioncenter-api" name="decisioncenter-api"
+		location="${server.config.dir}/apps/decisioncenter-api.war">
+		<classloader delegation="parentLast" />
+		<application-bnd>
+			<security-role name="rtsAdministrator">
+				<group name="AdminGroup"/>
+			</security-role>
+			<security-role name="rtsInstaller">
+				<group name="InstallGroup"/>	
+			</security-role>
+			<security-role name="rtsUser">
+				<special-subject type="ALL_AUTHENTICATED_USERS" />
+			</security-role>
+		</application-bnd>
+	</application>
+	
+	<logging traceFileName="stdout"
+	traceFormat="BASIC"
+	traceSpecification="*=info:org.apache.solr.*=warning:com.ibm.rules.decisioncenter.webhooks.notification.*=warning"
+	consoleLogLevel="INFO"/>
+</server>
