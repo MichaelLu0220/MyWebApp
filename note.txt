@@ -1,0 +1,31 @@
+20250804(星期一)
+
+今日工時8小時
+
+1.解決decision center專案中，部屬時 ServerDeployments 設定檔無法選擇的問題
+A:使用DC連線設定重新設定URL，並且排查問題，應該是與UAT同步化後，吃到RES設定，因為UAT和RPOD與SIT是沒有互通的，因此本來就無法部屬，因此將ServerDeployments中的UAT加入SIT位置
+
+2.查看帳號問題，User在DC刪除已離職員工帳號，卻又反覆出現
+A.因為DC上的使用者設定，是給予權限做使用，LDAP設定是在伺服器設定中，因此排查設定寫法，到DC server下的server.xml更改:
+
+<ldapRegistry
+    realm="LDAPRealm"
+    id="LDAP"
+    host="ap.mlit.com.corp"
+    port="389"
+    ldapType="Microsoft Active Directory"
+    baseDN="DC=mlit,DC=com,DC=corp"
+    bindDN="CN=DCAD,OU=TPE Server,OU=MLI,DC=mlit,DC=com,DC=corp"
+    bindPassword="*"
+    userFilter="(&amp;(sAMAccountName=%v)(!(userAccountControl:1.2.840.113556.1.4.803:=2)))">
+</ldapRegistry>
+
+3.更改介接JAVA版本問題
+A:下午著手更改JAVA版本，一開始先載入jdk17，後來測試時加入17版的特定語法，但IDE一直有錯誤與警告，因此開始排查問題，最後發現當時開發時所使用的編譯器版本為
+
+Eclipse Oxygen.2 Release (4.7.2)
+發布時間：2017-12-18
+Oxygen 系列（4.7.x） 主要設計給 Java 8、初步支援 Java 9。
+不支援 Java 14/15/17 的新語法。
+
+因此開始重新安裝編譯器並還在設定java17
